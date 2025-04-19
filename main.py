@@ -1,23 +1,27 @@
 import streamlit as st
+import yaml
+
+with open("settings/config.yaml", "r") as f:
+    config = yaml.safe_load(f)
 
 st.subheader("Road Detection and Segmentation")
 
 # Video file paths
-video1_path = "samples/input_r.mp4"
-video2_path = "samples/output_r.mp4"
-video3_path = "samples/input_nr.mp4"
-video4_path = "samples/output_nr.mp4"
+positive_input_path = config["sample_paths"]["positive_input"]
+positive_output_path = config["sample_paths"]["positive_output"]
+negative_input_path = config["sample_paths"]["negative_input"]
+negative_output_path = config["sample_paths"]["negative_output"]
 
 # First row: 2 videos side by side
 col1, col2 = st.columns(2)
 
 with col1:
     st.caption("Positive Input")
-    st.video(video1_path)
+    st.video(positive_input_path)
 
 with col2:
     st.caption("Positive Output")
-    st.video(video2_path)
+    st.video(positive_output_path)
 
 st.subheader("Here's the workflow:")
 st.markdown("""
@@ -32,11 +36,11 @@ col3, col4 = st.columns(2)
 
 with col3:
     st.caption("Negative Input")
-    st.video(video3_path)
+    st.video(negative_input_path)
 
 with col4:
     st.caption("Negative Output")
-    st.video(video4_path)
+    st.video(negative_output_path)
 
 # st.subheader("Step 2: U-Net for Image Segmentation")
 st.markdown("""

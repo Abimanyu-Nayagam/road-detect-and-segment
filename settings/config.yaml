@@ -1,0 +1,11 @@
+sample_paths:
+  positive_input: samples/input_r.mp4
+  positive_output: samples/output_r.mp4
+  negative_input: samples/input_nr.mp4
+  negative_output: samples/output_nr.mp4
+
+models:
+  pca_model: models/pca_model (1).pkl
+  ss_model: models/ss_model (1).pkl
+  one_shot: autoencoder_standard_scaled_5625.keras
+  segmentation: models/segment_mode.keras
