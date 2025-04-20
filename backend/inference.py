@@ -92,8 +92,10 @@ def make_prediction(video_path, max_duration):
     width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
+    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp", "inference_output.mp4"))
+
     out = cv2.VideoWriter(
-        "temp/inference_output.mp4",
+        output_path,
         fourcc,
         fps,
         (width, height)
@@ -219,5 +221,4 @@ def make_prediction(video_path, max_duration):
     out.release()
     cap.release()
     # cv2.destroyAllWindows()
-    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp", "inference_output.mp4"))
     return output_path
