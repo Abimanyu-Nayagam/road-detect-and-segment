@@ -222,6 +222,6 @@ def make_prediction(video_path, max_duration):
     out.release()
     cap.release()
     # cv2.destroyAllWindows()
-    st.video(output_path)
     print(f"Output video saved to: {output_path}")
+    
     return output_path
