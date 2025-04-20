@@ -219,5 +219,5 @@ def make_prediction(video_path, max_duration):
     out.release()
     cap.release()
     # cv2.destroyAllWindows()
-    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "temp", "inference_output.mp4"))
+    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp", "inference_output.mp4"))
     return output_path
