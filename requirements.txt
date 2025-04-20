@@ -1,7 +1,7 @@
 streamlit
 pyyaml
 tensorflow
-opencv-python
+opencv-python-headless
 joblib
 matplotlib
 scikit-learn
