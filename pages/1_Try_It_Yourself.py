@@ -36,10 +36,10 @@ if uploaded_file is not None:
 
      # 1) Run inference on the uploaded video
     out_video_path = make_prediction(temp_video_file_path, 1)
+    time.sleep(5)  # Wait briefly to ensure file is ready
     print(f"Output video saved to: {out_video_path}")
     print(f"contents of temp folder: {os.listdir(absolute_temp_path)}")
     st.video(out_video_path)
-    time.sleep(5)  # Wait briefly to ensure file is ready
     # 3) Cleanup: Remove temporary files after displaying the output
     os.remove(temp_video_file_path)
     os.remove(out_video_path)
