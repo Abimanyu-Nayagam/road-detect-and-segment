@@ -66,7 +66,6 @@ threshold = 0.06962311267852783
 def predict(model, data, threshold):
   reconstructions = model(data)
   loss = tf.keras.losses.mae(reconstructions, data)
-  print(loss)
   return tf.math.less(loss, threshold)
 
 import cv2
@@ -78,14 +77,14 @@ def safe_destroy(window_name):
         cv2.destroyWindow(window_name)
     except:
         pass  # Ignore the error if the window doesn't exist
-
+try_list = []
 def make_prediction(video_path, max_duration):
     cap = cv2.VideoCapture(video_path)
 
     fourcc = cv2.VideoWriter_fourcc(*'H264')
 
     fps = cap.get(cv2.CAP_PROP_FPS)
-    print(f"Input FPS: {fps}")
+
     max_frames = int(fps * max_duration)
     frame_count = 0
 
@@ -222,6 +221,7 @@ def make_prediction(video_path, max_duration):
             # break
             # rgb_image = cv2.cvtColor(output_image, cv2.COLOR_GRAY2BGR)
             out.write(added_image)
+            try_list.append(cv2.cvtColor(added_image, cv2.COLOR_BGR2RGB))
             # out = cv2.VideoWriter('let\'s check.avi', fourcc, 20.0, (640,  480))
             # cv2.imshow("Check", frame)
             # Exit the video display on pressing 'q'
@@ -234,4 +234,8 @@ def make_prediction(video_path, max_duration):
     # cv2.destroyAllWindows()
     print(f"Output video saved to: {output_path}")
     
+    frame_placeholder = st.empty()
+    for i in try_list:
+        frame_placeholder.image(i, channels="RGB")
+
     return output_path
