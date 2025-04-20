@@ -102,9 +102,17 @@ def make_prediction(video_path, max_duration):
         (width, height)
     )
 
+    if not out.isOpened():
+        print("❌ Could not open VideoWriter. Something's wrong with the output path or codec.")
+
     if not cap.isOpened():
         print("Error: Could not open video.")
         exit()
+
+    output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp"))
+    print("Writable:", os.access(output_dir, os.W_OK))
+    print("Exists:", os.path.exists(output_dir))
+
 
     count = 0
 
