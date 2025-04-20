@@ -1,2 +1,7 @@
 streamlit
 pyyaml
+tensorflow
+opencv-python
+joblib
+matplotlib
+sklearn

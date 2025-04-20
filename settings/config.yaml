@@ -9,3 +9,7 @@ models:
   ss_model: models/ss_model (1).pkl
   one_shot: autoencoder_standard_scaled_5625.keras
   segmentation: models/segment_mode.keras
+  one_shot_threshold: 0.06962311267852783
+
+inference:
+  save_path: temp
