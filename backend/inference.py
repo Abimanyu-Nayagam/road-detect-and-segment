@@ -3,6 +3,7 @@ from tensorflow.keras.applications import ResNet50
 from tensorflow.keras.applications.vgg16 import preprocess_input
 from tensorflow.keras.models import load_model
 import cv2
+import os
 import matplotlib.pyplot as plt
 
 from tensorflow.keras.saving import register_keras_serializable
@@ -218,4 +219,5 @@ def make_prediction(video_path, max_duration):
     out.release()
     cap.release()
     # cv2.destroyAllWindows()
-    return "temp/inference_output.mp4"
+    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "temp", "inference_output.mp4"))
+    return output_path
