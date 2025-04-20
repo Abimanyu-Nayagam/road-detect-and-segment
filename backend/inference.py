@@ -211,8 +211,8 @@ def make_prediction(video_path, max_duration):
             # out = cv2.VideoWriter('let\'s check.avi', fourcc, 20.0, (640,  480))
             # cv2.imshow("Check", frame)
             # Exit the video display on pressing 'q'
-        if cv2.waitKey(25) & 0xFF == ord('q'):
-            break
+        # if cv2.waitKey(25) & 0xFF == ord('q'):
+        #     break
 
     # Release the VideoCapture object and close windows
     out.release()
