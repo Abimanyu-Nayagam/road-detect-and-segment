@@ -223,7 +223,7 @@ def make_prediction(video_path, max_duration):
             # break
             # rgb_image = cv2.cvtColor(output_image, cv2.COLOR_GRAY2BGR)
             # out.write(added_image)
-            frame_placeholder.image(i, channels="RGB")
+            frame_placeholder.image(cv2.cvtColor(added_image, cv2.COLOR_BGR2RGB), channels="RGB")
             # out = cv2.VideoWriter('let\'s check.avi', fourcc, 20.0, (640,  480))
             # cv2.imshow("Check", frame)
             # Exit the video display on pressing 'q'
