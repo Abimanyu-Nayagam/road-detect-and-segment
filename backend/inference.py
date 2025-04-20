@@ -6,6 +6,7 @@ import cv2
 import os
 import matplotlib.pyplot as plt
 import streamlit as st
+import tempfile
 
 from tensorflow.keras.saving import register_keras_serializable
 from tensorflow import keras
@@ -94,6 +95,7 @@ def make_prediction(video_path, max_duration):
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
     output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp", "inference_output.mp4"))
+    output_path = os.path.join(tempfile.gettempdir(), "inference_output.mp4")
 
     out = cv2.VideoWriter(
         output_path,
