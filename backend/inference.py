@@ -217,5 +217,5 @@ def make_prediction(video_path, max_duration):
     # Release the VideoCapture object and close windows
     out.release()
     cap.release()
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
     return "temp/inference_output.mp4"
