@@ -77,7 +77,9 @@ def safe_destroy(window_name):
         cv2.destroyWindow(window_name)
     except:
         pass  # Ignore the error if the window doesn't exist
-try_list = []
+
+frame_placeholder = st.empty()
+
 def make_prediction(video_path, max_duration):
     cap = cv2.VideoCapture(video_path)
 
@@ -220,8 +222,8 @@ def make_prediction(video_path, max_duration):
             added_image = cv2.addWeighted(final, 0.7, output_frame_rgb, 0.3, 0)
             # break
             # rgb_image = cv2.cvtColor(output_image, cv2.COLOR_GRAY2BGR)
-            out.write(added_image)
-            try_list.append(cv2.cvtColor(added_image, cv2.COLOR_BGR2RGB))
+            # out.write(added_image)
+            frame_placeholder.image(i, channels="RGB")
             # out = cv2.VideoWriter('let\'s check.avi', fourcc, 20.0, (640,  480))
             # cv2.imshow("Check", frame)
             # Exit the video display on pressing 'q'
@@ -234,8 +236,4 @@ def make_prediction(video_path, max_duration):
     # cv2.destroyAllWindows()
     print(f"Output video saved to: {output_path}")
     
-    frame_placeholder = st.empty()
-    for i in try_list:
-        frame_placeholder.image(i, channels="RGB")
-
     return output_path
