@@ -95,18 +95,18 @@ def make_prediction(video_path, max_duration):
     width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp", "inference_output.mp4"))
-    output_path = os.path.join(tempfile.gettempdir(), "inference_output.mp4")
+    # output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp", "inference_output.mp4"))
+    # output_path = os.path.join(tempfile.gettempdir(), "inference_output.mp4")
 
-    out = cv2.VideoWriter(
-        output_path,
-        fourcc,
-        fps,
-        (width, height)
-    )
+    # out = cv2.VideoWriter(
+    #     output_path,
+    #     fourcc,
+    #     fps,
+    #     (width, height)
+    # )
 
-    if not out.isOpened():
-        print("❌ Could not open VideoWriter. Something's wrong with the output path or codec.")
+    # if not out.isOpened():
+    #     print("❌ Could not open VideoWriter. Something's wrong with the output path or codec.")
 
     if not cap.isOpened():
         print("Error: Could not open video.")
@@ -187,7 +187,8 @@ def make_prediction(video_path, max_duration):
                         (0, 255, 255),  
                         2,  
                         cv2.LINE_4)
-            out.write(frame_og)
+            # out.write(frame_og)
+            frame_placeholder.image(cv2.cvtColor(frame_og, cv2.COLOR_BGR2RGB), channels="RGB")
             prev = False
         else:
             safe_destroy('No road ahead')
