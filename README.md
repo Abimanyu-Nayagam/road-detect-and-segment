@@ -1,5 +1,5 @@
 # Road Detection and Segmentation System
-Overview
+
 This project implements a two-stage deep learning system for detecting and segmenting road areas in images and videos.
 It is designed as a component of a larger self-driving car system, helping distinguish drivable surfaces from non-drivable regions.
 
@@ -35,7 +35,7 @@ Anomaly Detection:
 
 Custom road-only dataset and autoencoder trained the Kaggle dataset: 100k Vehicle Dashcam Image Dataset. https://www.kaggle.com/datasets/mdfahimbinamin/100k-vehicle-dashcam-image-dataset
 
-##How to Run
+# How to Run
 
 Install dependencies
 ```
