@@ -43,7 +43,7 @@ pip install -r requirements.txt
 ```
 Run the Streamlit App
 ```
-streamlit run app/streamlit_app.py
+streamlit run main.py
 ```
 Upload a video or image
 
