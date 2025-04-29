@@ -1,4 +1,4 @@
-##Road Detection and Segmentation System
+# Road Detection and Segmentation System
 Overview
 This project implements a two-stage deep learning system for detecting and segmenting road areas in images and videos.
 It is designed as a component of a larger self-driving car system, helping distinguish drivable surfaces from non-drivable regions.
@@ -11,7 +11,7 @@ Stage 2: Semantic Segmentation — A modified U-Net model classifies each pixel 
 
 Live inference is available through the hosted link.
 
-##Key Components
+# Key Components
 1. Anomaly Detection (Autoencoder)
 Input: 2048-dimensional features extracted via a pretrained ResNet-50.
 
@@ -27,7 +27,7 @@ Output: Pixel-wise segmentation mask distinguishing road vs. non-road.
 Datasets
 Road Segmentation:
 
-Trained using the Cityscapes Dataset.
+Trained using the Cityscapes Dataset. https://www.cityscapes-dataset.com
 
 Custom masks were created by simplifying multi-class labels into binary "road" vs "non-road" masks.
 
